@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'android-aspectjx'
+
+//阿里路由配置
+//apply plugin: 'kotlin-kapt'
+//kapt {
+//    arguments {
+//        arg("AROUTER_MODULE_NAME", project.getName())
+//    }
+//}
+
+def androidCfg=rootProject.ext.android
+
+def ext=rootProject.ext
+
+def libDependencies=rootProject.ext.dependencies
+
+android {
+    compileSdkVersion androidCfg.compileSdkVersion
+    buildToolsVersion "29.0.2"
+    dataBinding{
+        enabled true
+    }
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libDependencies.libKotlinStd
+    implementation libDependencies.libAndroidxCompat
+    implementation libDependencies.libAndroidxCore
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //日志
+
+    //阿里路由
+//    api 'com.alibaba:arouter-api:1.5.0'
+//    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.1.0'
+
+    //Anko
+    api "org.jetbrains.anko:anko:$ext.anko_version"
+
+    api 'org.aspectj:aspectjrt:1.8.9'
+    implementation 'androidx.navigation:navigation-runtime:2.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+
+    implementation libDependencies.libRetrofit
+    implementation libDependencies.libRetrofitConverter
+    implementation libDependencies.libRetrofitAdapter
+    implementation libDependencies.libOkhttp
+    //Rx
+    implementation libDependencies.libRxKotlin
+    implementation libDependencies.libRxAndroid
+    implementation 'androidx.annotation:annotation:1.1.0'
+    //Fastjson
+    implementation libDependencies.LibFastJson
+    api project(path: ':base')
+
+}

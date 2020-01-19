@@ -1,0 +1,2 @@
+include ':app', ':common',  ':base', ':login'
+rootProject.name='ShiKe'

@@ -1,0 +1,48 @@
+ext {
+    //fase: 组件化模式
+    //true:集成模式
+    isMudule = false
+
+
+    android = [
+            compileSdkVersion: 29,
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            applicationId    : "com.ringle_al.shike",
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+    appId = [
+            "app": "com.ringle_al.shike",
+
+
+    ]
+
+    //jdk版本
+    java = [javaVersion: JavaVersion.VERSION_1_7]
+
+    /*
+    依赖库
+
+    * */
+    dependencies = [
+            libKotlinStd        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41",
+            libAndroidxCompat   : 'androidx.appcompat:appcompat:1.0.2',
+            libAndroidxCore     : 'androidx.core:core-ktx:1.1.0',
+            libJunit            : 'junit:junit:4.12',
+            libAnko             : "org.jetbrains.anko:anko:0.10.8",
+            libAspectj          : 'org.aspectj:aspectjrt:1.8.9',
+            libRetrofit         : 'com.squareup.retrofit2:retrofit:2.6.1',
+            libRetrofitConverter: 'com.squareup.retrofit2:converter-scalars:2.6.1',
+            libOkhttp           : 'com.squareup.okhttp3:okhttp:3.10.0',
+            libRxKotlin         : 'io.reactivex.rxjava2:rxkotlin:2.4.0',
+            libRxAndroid        : 'io.reactivex.rxjava2:rxandroid:2.0.2',
+            libRetrofitAdapter  : 'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
+            LibFastJson         : 'com.alibaba:fastjson:1.1.71.android'
+
+    ]
+
+    androidx_version = "1.1.0"
+    anko_version = "0.10.8"
+}
